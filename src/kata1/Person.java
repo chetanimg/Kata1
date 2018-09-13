@@ -4,7 +4,7 @@ package kata1;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Locale;
+import java.time.LocalDate;
 
 public class Person  {
     private final String name;
@@ -20,14 +20,14 @@ public class Person  {
         return name;
     }
 
-    public Calendar getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
     
     public int getAge() {
         // un año tiene 31536000000 milisegundos
-        Calendar today = GregorianCalendar.getInstance();
-        return (int) (milliSecondsToYear(today.getTimeInMillis() - birthdate.getTimeInMillis()));
+        LocalDate today = LocalDate.now();
+        return (int) (Period.between(fn-fa).getYears());
     }
 
     private long milliSecondsToYear(long milles) {
